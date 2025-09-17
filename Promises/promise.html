@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Promise : An object that manages asynchoronous code 
+     "I promise to return a value"
+     PENDING->RESOLVED OR REJECTED 
+     new Promise((resolve,reject)=>{(asynchoronous code)})-->
+    <script>
+        // let example be walk the dog,clean the kitchen adn takeout the trash
+        function walkDog(){
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    resolve('you walked the dog!!');
+                },2500);
+            });
+    }
+      function cleanKitchen(){
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    const clean=false;
+                    if(clean){
+                        resolve('you have cleaned the kitchen!!');
+                    }
+                    else{
+                        reject("you not cleaned kitchen");
+                    }
+                   
+                },1500);
+            });
+    }
+    function takeOutTrash(){
+            return new Promise((resolve,reject)=>{
+
+                setTimeout(()=>{
+                    const takeTrash=false;
+                    if(takeTrash){
+                        resolve('you takout the trash!!');
+                    }
+                    else{
+                        reject('you didnot the trash!!');
+
+                    }
+                    
+                },1000);
+            });
+    }
+    // method chaining
+    walkDog().then(value=>{console.log(value);return cleanKitchen()
+             .then(value=>{console.log("you cleaned the kitchen");return takeOutTrash()
+             .then(value=>{console.log(value); console.log("ALL tasks completed");})})})
+             .catch(error=>console.error(error));
+
+    </script>
+     
+</body>
+</html>
