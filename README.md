@@ -20,4 +20,10 @@ This project demonstrates how to use **JavaScript Promises** to handle asynchron
 2. Open the `index.html` file in your browser.
 3. Check the console (`F12 → Console`) to see the output of promises.
 
-## Example Output
+
+
+ fs-promises-demo/
+│
+├── promise.html          # Your main Node.js file (Promise-based fs operations)
+├── promise1.html         # Text file used for reading/writing
+└── README.md      # (optional) just to note what this folder does
