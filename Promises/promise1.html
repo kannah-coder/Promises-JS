@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Car Wash - Promise Example</title>
+</head>
+<body style="background:#f5f5f5;font-family:Arial;text-align:center;padding-top:50px;">
+  <h1>🚗 Car Wash Service (Promises Demo)</h1>
+  <p>Check the console for step-by-step output.</p>
+
+  <script>
+    // A helper to simulate time delay
+    function delay(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    // Each step returns a Promise
+    function washCar() {
+      return delay(1000).then(() => {
+        console.log("🚿 Car washed");
+        return "washed";
+      });
+    }
+
+    function rinseCar() {
+      return delay(800).then(() => {
+        console.log("💦 Car rinsed");
+        return "rinsed";
+      });
+    }
+
+    function dryCar() {
+      return delay(700).then(() => {
+        console.log("🌬️ Car dried");
+        return "dried";
+      });
+    }
+
+    function polishCar() {
+      return delay(500).then(() => {
+        console.log("✨ Car polished and shiny!");
+        return "polished";
+      });
+    }
+
+    // Promise chaining
+    function carService() {
+      console.log("🚗 Starting car wash process...\n");
+
+      washCar()
+        .then(rinseCar)
+        .then(dryCar)
+        .then(polishCar)
+        .then(() => {
+          console.log("\n✅ All steps completed! Car is ready to go!\n");
+        })
+        .catch((err) => {
+          console.error("❌ Something went wrong:", err);
+        });
+    }
+
+    // Start the process when page loads
+    carService();
+  </script>
+</body>
+</html>
